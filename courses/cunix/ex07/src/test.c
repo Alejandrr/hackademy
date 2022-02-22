@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "linked_list.h"
+#include "../include/linked_list.h"
 #include <assert.h>
 
 void printInt(void *data)
 {
-  printf("%s\n", data);
+  printf("%s\n", (char*)data);
 }
 
 void test_destroy_push(void *data)
@@ -120,8 +120,9 @@ int test_pop()
   asprintf(&str, "Test pop: ok");
   list_push(head, str);
 
+free(list_pop(&head));
   free(list_pop(&head));
-
+  free(list_pop(&head));
   list_destroy(&head, &test_destroy_push);
 
   return 0;
@@ -220,15 +221,15 @@ int test_global()
 
 int main()
 {
-   assert(test_create() == 0);
-   assert(test_destroy() == 0);
-   assert(test_push() == 0);
-   assert(test_print() == 0);
-   assert(test_unshift() == 0);
-   assert(test_pop() == 0);
-   assert(test_shift() == 0);
-   assert(test_remove() == 0);
-   assert(test_visitor() == 0);
-   assert(test_global() == 0);
+    assert(test_create() == 0);
+    assert(test_destroy() == 0);
+    assert(test_push() == 0);
+    assert(test_print() == 0);
+    assert(test_unshift() == 0);
+    assert(test_pop() == 0);
+    assert(test_shift() == 0);
+    assert(test_remove() == 0);
+    assert(test_visitor() == 0);
+    assert(test_global() == 0);
   return (0);
 }

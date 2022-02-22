@@ -16,7 +16,7 @@ NAME				:= strcmp_test
 all:				$(NAME)
 
 $(NAME):	    	$(OBJS)
-						$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+						$(CC) -std=c99 $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
 clean:
 						$(RM) $(OBJS)
