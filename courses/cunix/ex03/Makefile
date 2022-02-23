@@ -1,9 +1,9 @@
 
-CC					:= gcc
+CC				:= gcc
 
-RM					:= rm -rf
+RM				:= rm -rf
 
-LDFLAGS	    		+= -Llib
+LDFLAGS		    	+= -Llib
 
 CFLAGS		    	+= -Iinclude -Wall -Wextra -Werror -g
 
@@ -16,19 +16,18 @@ NAME				:= strcpy_test
 all:				$(NAME)
 
 $(NAME):		    $(OBJS)
-						$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+				$(CC) -std=c99 $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
 clean:
-						$(RM) $(OBJS)
+				$(RM) $(OBJS)
 
-fclean: 		    clean
-						$(RM) $(NAME)
+fclean:		 		    clean
+				$(RM) $(NAME)
 
 re: 				fclean all
 
 test:				re
-						@(./$(NAME) && echo "Test success" || echo "Test Fails")
+				@(./$(NAME) && echo "Test success" || echo "Test Fails")
 
 debug:              $(NAME)
-					valgrind -v --leak-check=full --track-origins=yes ./$(NAME)
-
+				valgrind -v --leak-check=full --track-origins=yes ./$(NAME)

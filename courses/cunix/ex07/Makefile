@@ -21,7 +21,7 @@ liblinked_list.a:	src/linked_list.o
 								ar rcs $@ $^
 
 $(TNAME):			$(OBJS)
-					$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+					$(CC) -std=c99 $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
 						$(RM) $(OBJS)
