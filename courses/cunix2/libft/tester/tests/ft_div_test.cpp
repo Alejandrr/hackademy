@@ -17,7 +17,7 @@ int main(void)
   signal(SIGSEGV, sigsegv);
 	title("ft_div\t: ")
 
-  div_t res;
+  ft_div_t res;
 
   res = ft_div(40, 5);
   /* 1 */ check(res.quot == 8 && res.rem == 0);
