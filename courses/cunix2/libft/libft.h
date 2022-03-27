@@ -23,7 +23,7 @@
     void *ft_memset (void *destination, int c, unsigned long lenght);
     void *ft_memcpy(void *dst, const void *src, unsigned long n);
     void ft_bzero(void *s, unsigned long n);
-    const char *ft_strchr(const char *s, int c);
+    const char *ft_strchr(const char *s, char c);
     int ft_isalpha(int c);
     int ft_isascii(int c);
     int ft_isdigit(int c);

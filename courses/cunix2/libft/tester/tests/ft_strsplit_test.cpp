@@ -1,7 +1,7 @@
 extern "C"
 {
 #define new hackademy
-#include "/libft.h"
+#include "libft.h"
 #undef new
 }
 
@@ -23,7 +23,7 @@ int main(void)
 	signal(SIGSEGV, sigsegv);
 	title("ft_strsplit\t: ")
 
-	char * * tab = ft_strsplit("  hackademy  42  ", ' ');
+	char * * tab = ft_strsplit("  hackademy  42  ", ' '); showLeaks();
 	/* 1 */ mcheck(tab, sizeof(char *) * 3);
 
 	/* 2 */ check(!strcmp(tab[0], "hackademy"));
@@ -33,7 +33,7 @@ int main(void)
 	/* 5 */ mcheck(tab[1], strlen("42") + 1);
 
 	/* 6 */ check(tab[2] == NULL);
-	freeTab(tab); showLeaks();
+	freeTab(tab);
 
 	tab = ft_strsplit("hackademy", 0);
 	/* 7 */ check(!strcmp(tab[0], "hackademy"));
@@ -46,7 +46,7 @@ int main(void)
 
 	char * invalidReadCheck = new char; *invalidReadCheck = 0;
 	tab = ft_strsplit(invalidReadCheck, 0);
-	/* 10 */ check(tab[0] == NULL); delete invalidReadCheck;
+	/* 10 */ check(tab[0] == NULL);delete invalidReadCheck;
 	free(tab); showLeaks();
 
 	tab = ft_strsplit("chinimala", ' ');

@@ -55,8 +55,8 @@ check_leaks:
 	valgrind ./$(CHECK_LEAKS_NAME) > /dev/null
 
 check_leaks_verbose:
-	$(CC) $(CCFLAGS) -g -o $(CHECK_LEAKS_NAME) check_leaks.c $(LDFLAGS)
-	valgrind --leak-check=full ./$(CHECK_LEAKS_NAME) > /dev/null
+	$(CC) $(CCFLAGS) -g  -o $(CHECK_LEAKS_NAME) check_leaks.c $(LDFLAGS)
+	valgrind -s --leak-check=full ./$(CHECK_LEAKS_NAME) > /dev/null
 
 
 all: $(NAME)
