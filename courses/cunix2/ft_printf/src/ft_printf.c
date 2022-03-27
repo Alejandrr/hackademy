@@ -140,7 +140,6 @@ int  ft_special_output(const char *fmt, va_list args)
 void ft_printf(const char *fmt, ...)
 {
     va_list args;
-    int arg_count = 0;
     register const char *fmt_iter = fmt;
     va_start(args, fmt);
     do
